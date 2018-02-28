@@ -10,15 +10,27 @@
 * - L'adresse ip du client
 */
 
-$login = "";
-$password = "";
+$login = '';
+$password = '';
+$html = '';
+$has_error = false;
 
-if(isset($_POST["login"])) {
-    $login = $_POST["login"];
+if (isset($_POST['submit'])) {
+    
+    if (empty($_POST['login'])) {
+        $has_error = true;
+    } else {
+        $login = $_POST['login'];
+    }
+
+    if (empty($_POST['password'])) {
+        $has_error = true;
+    } else {        
+        $password = $_POST['password'];
+    }
+
 }
-if(isset($_POST["password"])) {
-    $password = $_POST["password"];
-}
+
 
 ?>
 
@@ -36,14 +48,16 @@ if(isset($_POST["password"])) {
         <input type="text" id="login" name="login" placeholder="john@doe.com">
         <label for="password">Mot de passe</label>
         <input type="password" id="password" name="password" placeholder="mot de passe">
-        <input type="submit" valider>
+        <input type="submit" value="valider" name="submit">
     </form>
 
     <?php
-        if(!empty($login) && !empty($password)) {
-            echo "<p>Votre identifiant est : <strong>" . $login . "</strong></p>";
-            echo "<p>Votre mot de passe est : <strong>" . $password . "</strong></p>";
-            echo "<p>Votre addresse IP est : <strong>" . $_SERVER['REMOTE_ADDR'] . "</strong></p>";
+        if (isset($_POST['submit']) && !$has_error) {
+            $html.= '<p>Votre identifiant est : <strong>' . $login . '</strong></p>';
+            $html.= '<p>Votre mot de passe est : <strong>' . $password . '</strong></p>';
+            $html.= '<p>Votre addresse IP est : <strong>' . $_SERVER['REMOTE_ADDR'] . '</strong></p>';
+
+            echo $html;
         }
     ?>
 </body>

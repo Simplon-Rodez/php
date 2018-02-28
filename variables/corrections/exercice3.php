@@ -16,3 +16,5 @@ $insert = ['A','B','C'];
 /**
 * Coder ici
 */
+
+var_dump(array_merge($number, $insert));
