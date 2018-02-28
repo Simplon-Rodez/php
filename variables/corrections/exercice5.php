@@ -62,7 +62,7 @@ if (isset($_POST['submit-firstname'])) {
             <input type="submit" value="valider" name="submit-firstname">
         </form>
     <?php else: ?>
-        <h1>Vous vous appelez <?php echo "{$_SESSION['last-name']} {$_SESSION['first-name']}"; ?></h1>
+        <h1>Vous vous appelez <?php echo $_SESSION['last-name'] . ' ' . $_SESSION['first-name']; ?></h1>
     <?php endif; ?>
 </body>
 </html>

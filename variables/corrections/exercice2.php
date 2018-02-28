@@ -15,7 +15,11 @@
 
 $numbers = [1,2,3,4];
 
+// Methode 1
 array_push($numbers, 5, 6);
+
+// Méthode 2
+$numbers[] = 6;
 
 $lgt_numbers = count($numbers);
 
