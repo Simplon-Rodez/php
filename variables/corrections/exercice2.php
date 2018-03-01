@@ -16,7 +16,7 @@
 $numbers = [1,2,3,4];
 
 // Methode 1
-array_push($numbers, 5, 6);
+array_push($numbers, 5);
 
 // Méthode 2
 $numbers[] = 6;
@@ -24,3 +24,5 @@ $numbers[] = 6;
 $lgt_numbers = count($numbers);
 
 echo "Nombre d'élements : {$lgt_numbers}, deuxième élément : {$numbers[1]}";
+?>
+<pre><?php print_r($numbers); ?></pre>
