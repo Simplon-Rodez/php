@@ -7,6 +7,9 @@
 ## Suivre les exercices
 * Variables
 * Conditions
+* Boucles
+* Fonctions
+* Conditions
 
 
 ## Source
