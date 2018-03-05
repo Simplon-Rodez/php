@@ -1,7 +1,7 @@
 <?php
 
 /**
-* Créer des classes Dog et et Cat étendant Pet et implémentant l'interadce Animal
+* Créer des classes Dog et et Cat étendant Pet et implémentant l'interface Animal
 * 
 * Methode de Animal : 
 *   - Cry() // Affiche le nom du crie de l'animal
