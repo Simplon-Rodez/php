@@ -10,8 +10,8 @@
  */
 
 /*
- * Exercice : modifiez la classe Actor et cachez les attributs firstName
- * et lastName, ajoutez un constructeur pour initialiser les objets de la
+ * Exercice : modifiez la classe Actor et cachez les attributs _firstName
+ * et _lastName, ajoutez un constructeur pour initialiser les objets de la
  * classe, améliorez la création du tableau actors.
  */
 
@@ -23,28 +23,28 @@ ini_set('display_errors', 1);
  */
 class Actor
 {
-    public $firstName;
-    public $lastName;
+    public $_firstName;
+    public $_lastName;
 
     /**
      * @brief output actor's full name in <p> tag.
      */
     function fullName()
     {
-        echo "<p>".$this->firstName." ".$this->lastName."</p>";
+        echo "<p>".$this->_firstName." ".$this->_lastName."</p>";
     }
 }
 
 $actors = [];
 $actors[] = new Actor;
-$actors[0]->firstName = 'John';
-$actors[0]->lastName = 'Gielgud';
+$actors[0]->_firstName = 'John';
+$actors[0]->_lastName = 'Gielgud';
 $actors[] = new Actor;
-$actors[1]->firstName = 'Laurence';
-$actors[1]->lastName = 'Olivier';
+$actors[1]->_firstName = 'Laurence';
+$actors[1]->_lastName = 'Olivier';
 $actors[] = new Actor;
-$actors[2]->firstName = 'Vivien';
-$actors[2]->lastName = 'Leigh';
+$actors[2]->_firstName = 'Vivien';
+$actors[2]->_lastName = 'Leigh';
 
 echo "<h1>Actors List</h1>";
 
