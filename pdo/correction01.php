@@ -42,7 +42,7 @@ function enregistrer() {
 }
 
 function formulaire() {
-	echo <<<HTML
+	echo <<<TEXT
 		<form action="" method="GET">
 			<fieldset>
 				<label>Nom</label>
@@ -62,7 +62,7 @@ function formulaire() {
             </fieldset>
             <input type="submit" value="Enregistrer">
         </form>
-HTML;
+TEXT;
 }
 
 // vim: set expandtab:
