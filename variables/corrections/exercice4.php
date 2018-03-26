@@ -45,6 +45,10 @@ if (isset($_POST['submit-firstname'])) {
     <title>Exercice 1</title>
 </head>
 <body>
+    <?php if($has_error) {
+        echo '<h1 class="">Une erreur s\'est glissé qq part</h1>';
+    } ?>
+        
     <?php if (!isset($_SESSION['last-name'])) : ?>
         <h1>Comment vous appelez-vous ?</h1>
         <form method="post">
