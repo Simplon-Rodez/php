@@ -47,24 +47,24 @@ function formulaire()
 
     echo "<h3>Nouvelle commande</h3>";
 
-    $form = <<<HTML
+    $form = <<<TEXT
 		<form action="" method="GET">
 			<fieldset>
 				<label>Date</label>
 				<input type="text" name="date"><br>
 				<label>Client</label>
                 <select name="idClient">
-HTML;
+TEXT;
     $query = $db->query("SELECT * FROM clients");
     foreach ($query->fetchAll(PDO::FETCH_ASSOC) as $row) {
         $form .= "<option value=\"{$row['id']}\">{$row['nom']}</option>";
     };
-    $form .= <<<HTML
+    $form .= <<<TEXT
                 </select>
             </fieldset>
             <input type="submit" value="Enregistrer">
         </form>
-HTML;
+TEXT;
     echo $form;
 }
 
