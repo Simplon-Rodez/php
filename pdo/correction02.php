@@ -13,40 +13,41 @@ $user = "ecommerce";
 $password = "ecommerce";
 
 try {
-    $db = new PDO("mysql:dbname=ecommerce;host=localhost", $user, $password);
+    $db = new PDO("mysql:dbname=ecommerce;host=localhost;charset=utf8mb4", $user, $password);
 } catch (PDOException $e) {
     die("<p>Database connection failed</p>");
 }
-
 if (count($_GET) > 0) {
-	enregistrer();
+    enregistrer();
 } else {
-	formulaire();
+    formulaire();
 }
 
-function enregistrer() {
+function enregistrer()
+{
     global $db;
 
-	try {
-		$stmt = $db->prepare('INSERT INTO commandes (`date`, `idClient`) values (:date, :idClient)');
-		if ($stmt->execute($_GET)) {
+    try {
+        $stmt = $db->prepare('INSERT INTO commandes (`date`, `idClient`) values (:date, :idClient)');
+        if ($stmt->execute($_GET)) {
             echo "<p>Nouvelle commande enregistrée</p>";
         } else {
             echo "<p>La commande n'a pas été enregistrée : {$db->errorCode()}</p>";
         }
-	} catch (PDOException $e) {
-		echo "<p>Erreur de base de données : {$e->getMessage()}</p>";
+    } catch (PDOException $e) {
+        echo "<p>Erreur de base de données : {$e->getMessage()}</p>";
     } catch (Exception $e) {
         echo "<p>Erreur : {$e->getMessage()}</p>";
     }
 }
 
-function formulaire() {
+function formulaire()
+{
     global $db;
 
     echo "<h3>Nouvelle commande</h3>";
 
-	$form = <<<HTML
+    $form = <<<HTML
 		<form action="" method="GET">
 			<fieldset>
 				<label>Date</label>
@@ -55,7 +56,7 @@ function formulaire() {
                 <select name="idClient">
 HTML;
     $query = $db->query("SELECT * FROM clients");
-    foreach($query->fetchAll(PDO::FETCH_ASSOC) as $row) {
+    foreach ($query->fetchAll(PDO::FETCH_ASSOC) as $row) {
         $form .= "<option value=\"{$row['id']}\">{$row['nom']}</option>";
     };
     $form .= <<<HTML
@@ -69,4 +70,3 @@ HTML;
 
 // vim: set expandtab:
 // vim: set tabstop=4 shiftwidth=4 softtabstop=4:
-
